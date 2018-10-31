@@ -11,11 +11,12 @@ class Bullet(pygame.sprite.Sprite):
         self.ttl = float(ttl)
 
         '# Sprite initialization'
-        pygame.sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__ini t__(self)
         self.image = pygame.image.load('images/bullet.png')
         self.image = pygame.transform.scale(self.image, (25, 25))
         self.rect = self.image.get_rect()
 
     def blitme(self):
-
-        self.screen.blit(self.image, (self.pos.x, self.pos.y))
+        rotated_image_rect = self.rect
+        rotated_image_rect.center = (self.pos.x, self.pos.y)
+        self.screen.blit(self.image, rotated_image_rect)
