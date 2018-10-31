@@ -106,8 +106,8 @@ class MovementManager:
             '# def __init__(self, screen, pos, pos_delta, ttl):'
             game_state.bullets.append(
                 Bullet(screen,
-                       Point(game_state.my_ship.pos.x + -12.5, game_state.my_ship.pos.y + -12.5) + (
-                                   heading_vector * 15),
+                       Point(game_state.my_ship.pos.x, game_state.my_ship.pos.y) + (
+                                   heading_vector * 25),
                        heading_vector * 200, 250))
         else:
             if self.bullet_tracker1 > 0:
