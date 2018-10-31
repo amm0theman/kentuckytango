@@ -112,4 +112,20 @@ class MovementManager:
         else:
             if self.bullet_tracker1 > 0:
                 self.bullet_tracker1 -= 1
+
+        if self.command_ship2.shoot and self.bullet_tracker2 < 10:
+            self.bullet_tracker2 += 50
+            theta = game_state.enemy_ship.heading
+            magnitude = game_state.enemy_ship.acceleration
+            heading_vector = Point(magnitude * math.cos(theta), magnitude * math.sin(theta))
+            '# shoot a bullet with x time to live that gets updated every cycle'
+            '# def __init__(self, screen, pos, pos_delta, ttl):'
+            game_state.bullets.append(
+                Bullet(screen,
+                       Point(game_state.enemy_ship.pos.x, game_state.enemy_ship.pos.y) + (
+                                   heading_vector * 25),
+                       heading_vector * 200, 250))
+        else:
+            if self.bullet_tracker2 > 0:
+                self.bullet_tracker2 -= 1
         return game_state
