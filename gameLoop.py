@@ -3,7 +3,6 @@ from gameState import GameState
 from point import Point
 from ship import Ship
 from asteroid import Asteroid
-from bullet import Bullet
 from movementManager import MovementManager
 from collisionManager import CollisionManager
 from random import randint
@@ -34,10 +33,6 @@ class GameLoop:
             asteroids = Asteroid(self.screen, Point(randint(0, 900), randint(0, 900)),
                                  Point(randint(-20, 20), randint(-20, 20)), randint(120, 170))
             list.append(asteroid_list, asteroids)
-
-        for count in range(0, 10):
-            bullets = Bullet(self.screen, Point(randint(200, 300), randint(400, 500)), Point(5, 5), 50)
-            list.append(bullet_list, bullets)
 
         self.movement_manager = MovementManager(self.render_pace, 1000, 1000)
         self.collision_manager = CollisionManager()

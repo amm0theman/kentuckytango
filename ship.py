@@ -10,7 +10,7 @@ import math
 class Ship(pygame.sprite.Sprite):
     def __init__(self, screen, pos: Point, pos_delta: Point, heading: float, acceleration: float):
         pygame.sprite.Sprite.__init__(self)
-        self.image: pygame.Surface = pygame.image.load('venv/images/ship.png')
+        self.image: pygame.Surface = pygame.image.load('images/ship.png')
         self.image = pygame.transform.rotate(self.image, -90)
         self.image = pygame.transform.scale(self.image, (20, 20))
         self.rect = self.image.get_rect()
